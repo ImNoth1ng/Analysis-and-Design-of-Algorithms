@@ -44,8 +44,10 @@ def calculate_permutations(n, r):
         result *= i
     return result
 
-# Ejemplo de uso
-n = 4  # Número total de elementos
-r = 4  # Elementos tomados de r en r
-permutations = calculate_permutations(n, r)
-print(f"El número de permutaciones posibles de {n} elementos tomados de {r} en {r} es {permutations}.")
+if __name__ == "__main__":
+
+    # Ejemplo de uso
+    n = 5  # Número total de elementos
+    r = 3  # Elementos tomados de r en r
+    permutations = calculate_permutations(n, r)
+    print(f"El número de permutaciones posibles de {n} elementos tomados de {r} en {r} es {permutations}.")
