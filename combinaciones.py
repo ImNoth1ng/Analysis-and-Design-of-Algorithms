@@ -41,10 +41,12 @@ def obtener_combinaciones(arreglo):
 
     return combinaciones
 
-# Ejemplo de uso
-arreglo = [1, 2, 3]
-todas_combinaciones = obtener_combinaciones(arreglo)
+if __name__ == "__main__":
+    # Ejemplo de uso
+    arreglo = [1, 2, 3]
+    todas_combinaciones = obtener_combinaciones(arreglo)
 
-# Imprime todas las combinaciones
-for combinacion in todas_combinaciones:
-    print(combinacion)
+    # Imprime todas las combinaciones
+    for combinacion in todas_combinaciones:
+        print(combinacion)
+
