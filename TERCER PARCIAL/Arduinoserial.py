@@ -8,18 +8,15 @@ arduino = serial.Serial('COM4', 9600)
 time.sleep(2)#Esperamos 2 segundos para que se inicialice el puerto
 
 #Mostramos las opciones
-print("Presione 1 para encender el LED y 0 para apagar el LED")
+print("Mistrando datos del arduino")
 
 #Creamos un ciclo infinito
 while True:
-    #Solicitamos la opcion al usuario
-    opcion = input("---> ")
-    #Si la opcion es 1
-    if opcion == '1':
-        #Enviamos datos de tipo string por el puerto serial
-        arduino.write(b'23.23;42.42;565.6')
-        print("Mensaje enviado")
-    elif opcion == '0':
-        arduino.close()#Cerramos el puerto serial
-        print("Puerto cerrado")
-        break
+    #Leemos y convertimos a cadena el valor leido
+    dato = str(arduino.readline())
+    #Mostramos el valor leido y eliminamos el salto de linea del final
+    print(dato)
+    #Hacemos una pausa de medio segundo
+    time.sleep(1)
+    dato = "" #Limpiamos la variable dato
+
