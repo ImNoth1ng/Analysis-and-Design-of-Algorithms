@@ -1,0 +1,27 @@
+SEGUNDO PARCIAL:
+
+	Funcion de complejidad
+	-Mejor caso
+	-Peor Caso
+	(Operaciones de comparación y operaciones de igualación, sumas y restas)
+1.-Burbuja
+2.-Selection
+3.-Insersion
+4.-QuickSort
+(Generar el archivo csv de cada uno y graficar) 
+++++++++++++++++++++
+
+5.-Puzzle lineal (Cuidado! probar con 6 máximo)
+Recursividad
+	6.-(suma de n primeros numeros positivos, fibonacci)
+7.-Itaraciòn de fibonacci
+8.-Suma de unidades+decenas+centenas... [123 = 6] (Recursivo)
+9.-Busqueda Binaria (Recursivo)
++++++++++++++++++++++++
+OPCIONAL
+
+Sistemas expertos
+10.-Juego de la gallina,lobo,maiz y granjero
+
+Grafos
+10.- Lineas del metro
