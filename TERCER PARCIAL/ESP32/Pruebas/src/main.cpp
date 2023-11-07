@@ -1,18 +1,23 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+#include <Adafruit_ST7735.h>  // Hardware-specific library for ST7735
+#include <SPI.h>
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
-}
+//Coneccion de la pantalla
+// tft display | ESP32-S3 N16
+// GND         | GND
+// VCC         | 3V3
+// SCL         | IO18
+// SDA         | IO23
+// RES         | IO4
+// DC          | IO2
+// CS          | IO5
 
-void loop() {
-  // put your main code here, to run repeatedly:
-}
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
+#define TFT_CS 10
+#define TFT_DC 8
+#define TFT_RST 9
+#include <SPI.h>
+#include "Adafruit_GFX.h"
+#include "Adafruit_GC9106_kbv.h"
+Adafruit_GC9106_kbv tft(TFT_CS, TFT_DC, TFT_RST);
