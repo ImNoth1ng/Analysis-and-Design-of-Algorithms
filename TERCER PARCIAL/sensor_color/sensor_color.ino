@@ -1,3 +1,13 @@
+//Configuracion de Pines
+// 5   ---> VCC
+//GND  ---> OE
+//GND  ---> GND
+//12   ---> S2
+//11   ---> S3
+//10   ---> OUT
+// 9   ---> S1
+// 8   ---> S0
+
 #define S0 8
 #define S1 9
 #define S2 12
