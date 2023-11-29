@@ -120,9 +120,9 @@ def insertar_datos(archivo,archivo2,archivo3):
 
 if __name__=="__main__":
     
-    datos_ent=insertar_datos("./tratamientoDatos/NuevaManzana1.csv",
-                             "./tratamientoDatos/Mandarina.csv",
-                             "./tratamientoDatos/Limon1.csv")
+    datos_ent=insertar_datos("./tratamientoDatos/csv/NuevaManzana1.csv",
+                             "./tratamientoDatos/csv/Mandarina.csv",
+                             "./tratamientoDatos/csv/Limon1.csv")
     pesos=[.2,.6,.1]
     b=0.4
     lamda=0.2
