@@ -1,0 +1,98 @@
+const int led = 13;
+const int led1 = 12;
+float data = 0;
+int dataReal = 0;
+int dataDecimal = 0;
+int dataPow = 1;
+bool isDecimalStage = false;
+bool isNegative = false;
+int contador=0;
+float x1=0;
+float x2=0;
+float x3=0;
+
+float relu(float dato)
+{
+ if(dato>0){
+  return dato; 
+ }
+ else{
+  return 0;
+ }
+}
+float sigmoid(float dato){
+  return (1/(1+exp(dato*-1)));
+}
+
+void setup()
+{
+  pinMode(led, OUTPUT);
+  pinMode(led1, OUTPUT);
+  digitalWrite (led, LOW);
+  digitalWrite (led1, LOW);
+  Serial.begin(9600);
+  Serial.println("Conexion Establecida");
+}
+void calculo(){
+  float n1=relu((x1*p1)+(x2*p2)+(x3*p3)+(b1));
+  float n2=relu((x1*p4)+(x2*p5)+(x3*p6)+(b2));
+  float n3=sigmoid((n1*p7)+(n2*p8)+(b3));
+  Serial.println(n1);
+  Serial.println(n2);
+  Serial.println(n3);
+  if(round(n3)==1){    
+    Serial.println("Manzana");
+    digitalWrite (led, HIGH);
+    digitalWrite (led1, LOW);
+  }else{
+    Serial.println("Limon");
+    digitalWrite (led, LOW);
+    digitalWrite (led1, HIGH);
+  }
+  
+}
+
+void loop(){
+  
+  while(Serial.available())
+  {
+   char incomingChar = Serial.read();     
+     if (incomingChar == '-')
+         isNegative = -1;
+     
+     else if (incomingChar == '.' || incomingChar == ',')
+         isDecimalStage = true;
+     else if (incomingChar >= '0' && incomingChar <= '9')
+      {
+         if (isDecimalStage == false)
+            dataReal = (dataReal * 10) + (incomingChar - '0');
+         else
+         {
+            dataDecimal = (dataDecimal * 10) + (incomingChar - '0');
+            dataPow *= 10;
+         }
+      }
+      else if (incomingChar == '\n')
+      {
+       data = (float)dataReal + (float)dataDecimal / dataPow;
+         data = isNegative ? -data : data;
+         delay(1);        
+         dataReal = 0;
+         dataDecimal = 0;
+         dataPow = 1;
+         isDecimalStage = false;
+         if(contador==0){
+            x1=data;        
+         }else if(contador==1){
+            x2=data;
+         }else if(contador==2){
+            x3=data;
+            calculo();
+            contador=-1;
+         }
+         contador=contador+1;         
+      }
+   }
+   
+  
+}
